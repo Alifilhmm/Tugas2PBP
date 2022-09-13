@@ -12,3 +12,7 @@ Virtual environtment membantu kita menginstal packages serta dependencies ,yang 
 3. Menambahkan variabel context dan melakukan render dengan syntax render(..., context)
 
 4. Membuat app baru di heroku dan menyambungkan repo tugas 2 ke pbp dengan menambahkan API value dan nama app di secrets.
+
+## Links
+https://alifilhamtugas2pbp.herokuapp.com/
+https://alifilhamtugas2pbp.herokuapp.com/katalog/
