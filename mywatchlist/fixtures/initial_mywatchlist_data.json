@@ -1,0 +1,113 @@
+[
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":1,
+        "fields":{
+            "watched":"Yes",
+            "title" : "Fight Club",
+            "rating" : 4,
+            "release_date" : "21/09/1999",
+            "review" : "The first rule of Fight Club is: you do not talk about Fight Club. The second rule of Fight Club is: you DO NOT talk about Fight Club!"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":2,
+        "fields":{
+            "watched":"Yes",
+            "title" : "The Equalizer",
+            "rating" : 5,
+            "release_date" : "24/09/2014",
+            "review" : "Really great action sequences, with some nice violent ends, and a very interesting story that almost feels like it starts in the middle, leaving you guessing about his past. It kind of has a very John Wick feel to it, but maybe slightly less over-the-top crazy."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":3,
+        "fields":{
+            "watched":"Yes",
+            "title" : "Hacksaw Ridge",
+            "rating" : 4,
+            "release_date" : "04/11/2016",
+            "review" : "One of the best movies I've seen in a long time & the fact it's a true story makes it even better. Mel Gibson directs this & he has done those men proud "
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":4,
+        "fields":{
+            "watched":"Yes",
+            "title" : "The Dark Knight",
+            "rating" : 5,
+            "release_date" : "18/07/2008",
+            "review" : "Totally one of the greatest movie titles ever made. Everything was great, filming, acting, story. Nothing to complain about"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":5,
+        "fields":{
+            "watched":"No",
+            "title" : "Inception",
+            "rating" : 4,
+            "release_date" : "16/07/2010",
+            "review" : "When you wake up from a good dream, you feel the reality is harsh. When you wake up after a bad dream, you will be sentimentally attached to the beauty of reality. But as long as life is good, reality and dreams don't matter"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":6,
+        "fields":{
+            "watched":"No",
+            "title" : "Elvis",
+            "rating" : 3,
+            "release_date" : "24/06/2022",
+            "review" : "It's probably not the best biopic ever made but I personally loved this take on Elvis. I loved that it exposed The Colonel's abuse and gave some insight to just how much Elivs worked for the benefit of others. He took care of everyone"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":7,
+        "fields":{
+            "watched":"Yes",
+            "title" : "Kingsman : The Secret Service",
+            "rating" : 4,
+            "release_date" : "11/02/2014",
+            "review" : "The Secret Service is a gentlemen secret spy-society that saves the world from a villain with the help of new recruits ... Don't let this summary fool you, the movie fantastic! It got applause at the end of the preview; for me first time ever in a cinema."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":8,
+        "fields":{
+            "watched":"Yes",
+            "title" : "John Wick",
+            "rating" : 4,
+            "release_date" : "24/10/2014",
+            "review" : "One of the best action movies, despite the weakness of the story, but it was compensated for by great action scenes"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":9,
+        "fields":{
+            "watched":"Yes",
+            "title" : "Toy Story 3",
+            "rating" : 5,
+            "release_date" : "18/06/2010",
+            "review" : "Toy Story 3 in my opinion is by far the best of the trilogy! It is the most emotionally investing out of all the Toy Story installments and is an outstanding entry to the Pixar library!"
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":10,
+        "fields":{
+            "watched":"Yes",
+            "title" : "The Batman",
+            "rating" : 5,
+            "release_date" : "02/03/2022",
+            "review" : "A must-see film for any batman fans, I guess that others may enjoy this too. Saw this in a theatre today, the age ranking I would give is 14. I've been waiting for a good batman film for 14 years now, and this certainly, most certainly delivers"
+        }
+    }
+    
+]
