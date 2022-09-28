@@ -2,7 +2,7 @@
 
  {% block content %}
  <style>
-    h1, h5, p {text-align: center; color: rgb(147,112,219);}
+    h1, h5, p {text-align: center; color: rgb(0,0,0);}
     th {text-align: center;}
     tr {background-color: rgba(147,112,219);}
     div {text-align: center;}
@@ -23,8 +23,12 @@
     height:100vh;
     color:#fff;
     }
+    
     </style>
   <h1>To Do List</h1>
+  <br>
+    <h5>Logged in as: </h5>
+    <p>{{ user.get_username }}</p>
 
 
   <br>
