@@ -1,4 +1,6 @@
-
+## Links
+    https://alifilhamtugas2pbp.herokuapp.com/
+    https://alifilhamtugas2pbp.herokuapp.com/todolist/login/
 
 ## Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?
 
@@ -64,4 +66,8 @@
 
 ## Akun Dummy
 
-    
+    Username : alifgans
+    Password : alif@pbp
+
+    Username2 : ilhamproea
+    Password2 : ilham@pbp
