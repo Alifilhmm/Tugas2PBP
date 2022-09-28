@@ -20,7 +20,7 @@ from .forms import create_form
 # Create your views here.
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    data_todolist = ToDoList.objects.all()
+    data_todolist = ToDoList.objects.filter(user=request.user)
     context = {
         'todolist': data_todolist,
         'last_login': request.COOKIES['last_login'],
@@ -68,7 +68,7 @@ def deleteTask(request, pk):
     return redirect('todolist:show_todolist')
 
 def addTask(request):
-    context = {}
+
     if request.method == "POST":
         form = create_form(request.POST)
         # check whether it's valid:
