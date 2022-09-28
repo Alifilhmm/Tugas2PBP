@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>To Do List</h1>
+
+  <br>
+  <table width = '200%'>
+    <table border="1">
+    <tr>
+      <th>Tanggal</th>
+      <th>Task</th>
+      <th>Deskripsi Task</th>
+      <th>Status Task</th>
+      <th>Ubah Status Task</th>
+      <th>Hapus Task</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for task in list_task %}
+      <tr>
+          <th>{{task.date}}</th>
+          <th>{{task.title}}</th>
+          <th>{{task.description}}</th>
+
+          {% if task.is_finished %} 
+            <th>Selesai</th>
+          {% else %}
+            <th>Belum Selesai</th>
+          {% endif %}
+
+          <td><button><a href="{% url 'todolist:check' task.id %}">Check</a></button></td>
+          <td><button><a href="{% url 'todolist:deleteTask' task.id %}">Delete</a></button></td>
+      </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <button><a href="{% url 'todolist:create-task' %}">Add New Task</a></button>
+  <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+ {% endblock content %}
