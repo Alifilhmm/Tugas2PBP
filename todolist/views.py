@@ -62,8 +62,8 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
-def deleteTask(request, id):
-    item = ToDoList.objects.filter(id=id)
+def deleteTask(request, pk):
+    item = ToDoList.objects.filter(pk=pk)
     item.delete()
     return redirect('todolist:show_todolist')
 
@@ -85,12 +85,12 @@ def addTask(request):
         }
     return render(request, "create-task.html", context)
 
-def check(request, id):
+def check(request, pk):
 
-    temp = ToDoList.objects.get(id=id)
+    temp = ToDoList.objects.get(pk=pk)
     if (temp.is_finished == False):
         temp.is_finished = True
     else :
         temp.is_finished = False
     temp.save()
-    return redirect('todolist:show')
+    return redirect('todolist:show_todolist')
