@@ -12,10 +12,11 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from todolist.models import ToDoList
 from .forms import create_form
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -26,6 +27,11 @@ def show_todolist(request):
         'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    data_todolist = ToDoList.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', data_todolist), content_type='application/json')
 
 
 def register(request):
@@ -87,10 +93,35 @@ def addTask(request):
 
 def check(request, pk):
 
-    temp = ToDoList.objects.get(pk=pk)
+    temp = ToDoList.objects.filter(user=request.user).get(pk=pk)
     if (temp.is_finished == False):
         temp.is_finished = True
     else :
         temp.is_finished = False
     temp.save()
     return redirect('todolist:show_todolist')
+
+
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def addTask_ajax(request):
+    if request.method == 'POST':
+        print("i")
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        if title != "" or description != "":
+            task = ToDoList.objects.create(title = title, description = description, date = datetime.datetime.now(), user = request.user)
+            context = {
+                'pk' : task.pk,
+                'fields' : {
+                    'title' : task.title,
+                    'description' : task.description,
+                    'is_finished' : task.is_finished,
+                    'date' : task.date
+                }
+            }
+            return JsonResponse(context)
+
+
+
+
