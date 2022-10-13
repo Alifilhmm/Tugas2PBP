@@ -106,12 +106,11 @@ def check(request, pk):
 @csrf_exempt
 def addTask_ajax(request):
     if request.method == 'POST':
-        print("i")
         title = request.POST.get('title')
         description = request.POST.get('description')
         if title != "" or description != "":
             task = ToDoList.objects.create(title = title, description = description, date = datetime.datetime.now(), user = request.user)
-            context = {
+            data = {
                 'pk' : task.pk,
                 'fields' : {
                     'title' : task.title,
@@ -120,7 +119,7 @@ def addTask_ajax(request):
                     'date' : task.date
                 }
             }
-            return JsonResponse(context)
+            return JsonResponse(data)
 
 
 

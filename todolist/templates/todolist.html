@@ -18,13 +18,10 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'todolist:create-task' %}">Add New Task</a>
+          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#modaladd" href="#">Create New Task</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'todolist:logout' %}">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#modaladd" href="#">Create New Task</a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -69,7 +66,7 @@
     </table>
   </form>
 
-  <div class="container row justify-content-center" id = "container">
+  <div class="row row-cols-md-3 mx-auto justify-content-center" id = "container">
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -79,13 +76,13 @@
       $.get("/todolist/json/", function(data){
         console.log(2)
           for (let task = 0; task< data.length; task++) {
-          $('#container').append(`<div class="row justify-content-center">
-          <div class="col-sm-6 col-md-4 col-lg-3 p-1">
+          $('#container').append(`<div class="col-auto mb-3">
+          <div class="card border-secondary mx-auto">
             <div class="card">
             <h4 class="card-title">${data[task].fields.title}</h4>
-            <p class="card-text">${data[task].fields.description}</p>
             <p class="card-text">${data[task].fields.date}</p>
             ${!data[task].fields.is_finished ? '<p class="card-text">Status : Belum Selesai</p>' : '<p class="card-text">Status : Selesai</p>'}
+            <p class="card-text">Quick Note : ${data[task].fields.description}</p>
             <a class="btn btn-primary p-1 mx-auto my-auto" href="/todolist/check/${data[task].pk}">Check</a>
             <a class="btn btn-danger p-1 mx-auto my-auto" href="/todolist/deleteTask/${data[task].pk}">Delete</a>
             </div>
@@ -100,13 +97,13 @@
       $.post( "/todolist/addTask_ajax/", {title : $("#title").val(), description : $("#description").val()}, function(data, status) {
         console.log(4)
         if (status == "success") {
-          $('#container').append(`<div class="row justify-content-center"
+          $('#container').append(`<div class="col-auto mb-3"
           <div class="col-sm-6 col-md-4 col-lg-3 p-1">
             <div class=" card">
             <h4 class="card-title">${data.title}</h4>
-            <p class="card-text">${data.description}</p>
             <p class="card-text">${data.date}</p>
             ${!data.is_finished ? '<p class="card-text">Status : Belum Selesai</p>' : '<p class="card-text">Status : Selesai</p>'}
+            <p class="card-text">Quick Note : ${data.description}</p>
             <a class="btn btn-primary" href="/todolist/check/${data.pk}">Check</a>
             <a class="btn btn-danger" href="/todolist/deleteTask/${data.pk}">Delete</a>
             </div>
